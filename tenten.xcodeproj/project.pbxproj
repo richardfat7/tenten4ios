@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ED84EBDF23F9972B008D5501 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84EBDE23F9972B008D5501 /* AppDelegate.swift */; };
+		ED84EBE323F9972B008D5501 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84EBE223F9972B008D5501 /* ViewController.swift */; };
+		ED84EBE623F9972B008D5501 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED84EBE423F9972B008D5501 /* Main.storyboard */; };
+		ED84EBE823F99730008D5501 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED84EBE723F99730008D5501 /* Assets.xcassets */; };
+		ED84EBEB23F99730008D5501 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED84EBE923F99730008D5501 /* LaunchScreen.storyboard */; };
+		ED84EBF623F99730008D5501 /* tentenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84EBF523F99730008D5501 /* tentenTests.swift */; };
+		ED84EC0123F99730008D5501 /* tentenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84EC0023F99730008D5501 /* tentenUITests.swift */; };
+		ED84EC0F23FAC777008D5501 /* boardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84EC0E23FAC777008D5501 /* boardModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ED84EBF223F99730008D5501 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED84EBD323F9972A008D5501 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED84EBDA23F9972A008D5501;
+			remoteInfo = tenten;
+		};
+		ED84EBFD23F99730008D5501 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED84EBD323F9972A008D5501 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED84EBDA23F9972A008D5501;
+			remoteInfo = tenten;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ED84EBDB23F9972B008D5501 /* tenten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tenten.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED84EBDE23F9972B008D5501 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ED84EBE223F9972B008D5501 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ED84EBE523F9972B008D5501 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ED84EBE723F99730008D5501 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ED84EBEA23F99730008D5501 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ED84EBEC23F99730008D5501 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED84EBF123F99730008D5501 /* tentenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tentenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED84EBF523F99730008D5501 /* tentenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tentenTests.swift; sourceTree = "<group>"; };
+		ED84EBF723F99730008D5501 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED84EBFC23F99730008D5501 /* tentenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tentenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED84EC0023F99730008D5501 /* tentenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tentenUITests.swift; sourceTree = "<group>"; };
+		ED84EC0223F99730008D5501 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED84EC0E23FAC777008D5501 /* boardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = boardModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ED84EBD823F9972A008D5501 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED84EBEE23F99730008D5501 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED84EBF923F99730008D5501 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ED84EBD223F9972A008D5501 = {
+			isa = PBXGroup;
+			children = (
+				ED84EBDD23F9972B008D5501 /* tenten */,
+				ED84EBF423F99730008D5501 /* tentenTests */,
+				ED84EBFF23F99730008D5501 /* tentenUITests */,
+				ED84EBDC23F9972B008D5501 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ED84EBDC23F9972B008D5501 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED84EBDB23F9972B008D5501 /* tenten.app */,
+				ED84EBF123F99730008D5501 /* tentenTests.xctest */,
+				ED84EBFC23F99730008D5501 /* tentenUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED84EBDD23F9972B008D5501 /* tenten */ = {
+			isa = PBXGroup;
+			children = (
+				ED84EBDE23F9972B008D5501 /* AppDelegate.swift */,
+				ED84EBE223F9972B008D5501 /* ViewController.swift */,
+				ED84EBE423F9972B008D5501 /* Main.storyboard */,
+				ED84EC0E23FAC777008D5501 /* boardModel.swift */,
+				ED84EBE723F99730008D5501 /* Assets.xcassets */,
+				ED84EBE923F99730008D5501 /* LaunchScreen.storyboard */,
+				ED84EBEC23F99730008D5501 /* Info.plist */,
+			);
+			path = tenten;
+			sourceTree = "<group>";
+		};
+		ED84EBF423F99730008D5501 /* tentenTests */ = {
+			isa = PBXGroup;
+			children = (
+				ED84EBF523F99730008D5501 /* tentenTests.swift */,
+				ED84EBF723F99730008D5501 /* Info.plist */,
+			);
+			path = tentenTests;
+			sourceTree = "<group>";
+		};
+		ED84EBFF23F99730008D5501 /* tentenUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ED84EC0023F99730008D5501 /* tentenUITests.swift */,
+				ED84EC0223F99730008D5501 /* Info.plist */,
+			);
+			path = tentenUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ED84EBDA23F9972A008D5501 /* tenten */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED84EC0523F99730008D5501 /* Build configuration list for PBXNativeTarget "tenten" */;
+			buildPhases = (
+				ED84EBD723F9972A008D5501 /* Sources */,
+				ED84EBD823F9972A008D5501 /* Frameworks */,
+				ED84EBD923F9972A008D5501 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tenten;
+			productName = tenten;
+			productReference = ED84EBDB23F9972B008D5501 /* tenten.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ED84EBF023F99730008D5501 /* tentenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED84EC0823F99730008D5501 /* Build configuration list for PBXNativeTarget "tentenTests" */;
+			buildPhases = (
+				ED84EBED23F99730008D5501 /* Sources */,
+				ED84EBEE23F99730008D5501 /* Frameworks */,
+				ED84EBEF23F99730008D5501 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED84EBF323F99730008D5501 /* PBXTargetDependency */,
+			);
+			name = tentenTests;
+			productName = tentenTests;
+			productReference = ED84EBF123F99730008D5501 /* tentenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ED84EBFB23F99730008D5501 /* tentenUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED84EC0B23F99730008D5501 /* Build configuration list for PBXNativeTarget "tentenUITests" */;
+			buildPhases = (
+				ED84EBF823F99730008D5501 /* Sources */,
+				ED84EBF923F99730008D5501 /* Frameworks */,
+				ED84EBFA23F99730008D5501 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ED84EBFE23F99730008D5501 /* PBXTargetDependency */,
+			);
+			name = tentenUITests;
+			productName = tentenUITests;
+			productReference = ED84EBFC23F99730008D5501 /* tentenUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ED84EBD323F9972A008D5501 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = Fatfat;
+				TargetAttributes = {
+					ED84EBDA23F9972A008D5501 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					ED84EBF023F99730008D5501 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = ED84EBDA23F9972A008D5501;
+					};
+					ED84EBFB23F99730008D5501 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = ED84EBDA23F9972A008D5501;
+					};
+				};
+			};
+			buildConfigurationList = ED84EBD623F9972A008D5501 /* Build configuration list for PBXProject "tenten" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ED84EBD223F9972A008D5501;
+			productRefGroup = ED84EBDC23F9972B008D5501 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED84EBDA23F9972A008D5501 /* tenten */,
+				ED84EBF023F99730008D5501 /* tentenTests */,
+				ED84EBFB23F99730008D5501 /* tentenUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ED84EBD923F9972A008D5501 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED84EBEB23F99730008D5501 /* LaunchScreen.storyboard in Resources */,
+				ED84EBE823F99730008D5501 /* Assets.xcassets in Resources */,
+				ED84EBE623F9972B008D5501 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED84EBEF23F99730008D5501 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED84EBFA23F99730008D5501 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED84EBD723F9972A008D5501 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED84EC0F23FAC777008D5501 /* boardModel.swift in Sources */,
+				ED84EBE323F9972B008D5501 /* ViewController.swift in Sources */,
+				ED84EBDF23F9972B008D5501 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED84EBED23F99730008D5501 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED84EBF623F99730008D5501 /* tentenTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED84EBF823F99730008D5501 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED84EC0123F99730008D5501 /* tentenUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ED84EBF323F99730008D5501 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED84EBDA23F9972A008D5501 /* tenten */;
+			targetProxy = ED84EBF223F99730008D5501 /* PBXContainerItemProxy */;
+		};
+		ED84EBFE23F99730008D5501 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED84EBDA23F9972A008D5501 /* tenten */;
+			targetProxy = ED84EBFD23F99730008D5501 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ED84EBE423F9972B008D5501 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED84EBE523F9972B008D5501 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ED84EBE923F99730008D5501 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED84EBEA23F99730008D5501 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ED84EC0323F99730008D5501 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ED84EC0423F99730008D5501 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ED84EC0623F99730008D5501 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X7J345S4A8;
+				INFOPLIST_FILE = tenten/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fatfat.tenten;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ED84EC0723F99730008D5501 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X7J345S4A8;
+				INFOPLIST_FILE = tenten/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fatfat.tenten;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		ED84EC0923F99730008D5501 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = tentenTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fatfat.tentenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tenten.app/tenten";
+			};
+			name = Debug;
+		};
+		ED84EC0A23F99730008D5501 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = tentenTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fatfat.tentenTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tenten.app/tenten";
+			};
+			name = Release;
+		};
+		ED84EC0C23F99730008D5501 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = tentenUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fatfat.tentenUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = tenten;
+			};
+			name = Debug;
+		};
+		ED84EC0D23F99730008D5501 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = tentenUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fatfat.tentenUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = tenten;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ED84EBD623F9972A008D5501 /* Build configuration list for PBXProject "tenten" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED84EC0323F99730008D5501 /* Debug */,
+				ED84EC0423F99730008D5501 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED84EC0523F99730008D5501 /* Build configuration list for PBXNativeTarget "tenten" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED84EC0623F99730008D5501 /* Debug */,
+				ED84EC0723F99730008D5501 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED84EC0823F99730008D5501 /* Build configuration list for PBXNativeTarget "tentenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED84EC0923F99730008D5501 /* Debug */,
+				ED84EC0A23F99730008D5501 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED84EC0B23F99730008D5501 /* Build configuration list for PBXNativeTarget "tentenUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED84EC0C23F99730008D5501 /* Debug */,
+				ED84EC0D23F99730008D5501 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ED84EBD323F9972A008D5501 /* Project object */;
+}
