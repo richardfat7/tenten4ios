@@ -207,7 +207,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                     }
                 }
             }
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            repeat {
+                print("gening")
                 for v in self.choice {
                     let r = self.randomNumber(probabilities: self.chance)
                     for co in self.pieces[r] {
@@ -215,22 +216,47 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                         let y = co[1]
                         v.subviews[y].subviews[x].backgroundColor = self.color[r + 1]
                     }
+                    print(r)
+                }
+                print("VALID ", self.checkAllPossible(false))
+            } while self.easyMode && (self.checkAllPossible(false) < 3)
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+                for v in self.choice {
                     v.isHidden = false
                 }
             }, completion: nil)
         }
     }
     
-    func checkAnyPossible() -> Int {
+    func checkAnyPossible(_ ignoreHidden: Bool) -> Int {
         var valid = 0
-        for i in 0...2 {
-            if choice[i].isHidden {
+        outloop: for i in 0...2 {
+            if choice[i].isHidden && ignoreHidden {
                 continue
             }
             for x in 0...9 {
                 for y in 0...9 {
-                    if  checkFail(choice[i], x, y) == 0 {
+                    if checkFail(choice[i], x, y) == 0 {
                         valid = 1
+                        break outloop
+                    }
+                }
+            }
+        }
+        return valid
+    }
+    
+    func checkAllPossible(_ ignoreHidden: Bool) -> Int {
+        var valid = 0
+        for i in 0...2 {
+            if choice[i].isHidden && ignoreHidden {
+                continue
+            }
+            outloop: for x in 0...9 {
+                for y in 0...9 {
+                    if checkFail(choice[i], x, y) == 0 {
+                        valid += 1
+                        break outloop
                     }
                 }
             }
@@ -249,7 +275,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 }
             }
         }
-        genIfNeed(true)
         for row in stack.subviews {
             for col in row.subviews {
                 col.backgroundColor = color[0]
@@ -258,6 +283,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 col.layer.cornerRadius = 5.0
             }
         }
+        genIfNeed(true)
     }
     
     @objc func itemDidMove(_ recognizer:UIPanGestureRecognizer) {
@@ -364,7 +390,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                     }
                 }, completion: nil)
                 genIfNeed(false)
-                let valid = checkAnyPossible()
+                let valid = checkAnyPossible(true)
                 if valid == 0 {
                     gg.isHidden = false
                 }
