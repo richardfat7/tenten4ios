@@ -13,6 +13,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var stack: UIStackView!
     @IBOutlet var choice: [UIStackView]!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var gg: UIView!
     
     var origin: [CGPoint] = Array(repeating: CGPoint.zero, count: 3)
     var score = 0
@@ -162,6 +163,25 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         return (probabilities.count - 1)
     }
     
+    func checkFail(_ gestureView: UIView, _ xcell: Int, _ ycell: Int) -> Int {
+        var error = 0
+        for i in 0...4 {
+            for j in 0...4 {
+                let c = gestureView.subviews[j].subviews[i].backgroundColor
+                if c != color[0] {
+                    if let v = getStack(xcell + i, ycell + j) {
+                        if v.backgroundColor != color[0] {
+                            error = 1
+                        }
+                    } else {
+                        error = 1
+                    }
+                }
+            }
+        }
+        return error
+    }
+    
     func getStack(_ x: Int, _ y: Int) -> UIView? {
         if x >= 0 && x <= 9 && y >= 0 && y <= 9 {
             let v = stack.subviews[y].subviews[x]
@@ -196,6 +216,28 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                     v.isHidden = false
                 }
             }, completion: nil)
+        }
+    }
+    
+    func reset() {
+        score = 0
+        scoreLabel.text = "\(score)"
+        for item in choice {
+            for row in item.subviews {
+                for col in row.subviews {
+                    col.backgroundColor = color[0]
+                    col.layer.cornerRadius = 5.0
+                }
+            }
+        }
+        genIfNeed(true)
+        for row in stack.subviews {
+            for col in row.subviews {
+                col.backgroundColor = color[0]
+                col.layer.borderColor = UIColor.lightGray.cgColor
+                col.layer.borderWidth = 1.0
+                col.layer.cornerRadius = 5.0
+            }
         }
     }
     
@@ -243,20 +285,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             let xcell = Int(round((position.x)/(spacing+size)))
             let ycell = Int(round((position.y)/(spacing+size)))
             var error = 0
-            for i in 0...4 {
-                for j in 0...4 {
-                    let c = gestureView.subviews[j].subviews[i].backgroundColor
-                    if c != color[0] {
-                        if let v = getStack(xcell + i, ycell + j) {
-                            if v.backgroundColor != color[0] {
-                                error = 1
-                            }
-                        } else {
-                            error = 1
-                        }
-                    }
-                }
-            }
+            error = checkFail(gestureView, xcell, ycell)
             if error == 0 {
                 for i in 0...4 {
                     for j in 0...4 {
@@ -301,7 +330,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 print(clearedx, clearedy)
                 let ncleared = clearedx.count + clearedy.count
                 score += ncleared * (ncleared + 1) * 10
-                scoreLabel.text = "Score: \(score)"
+                scoreLabel.text = "\(score)"
                 gestureView.isHidden = true
                 UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                     for i in clearedx {
@@ -316,6 +345,22 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                     }
                 }, completion: nil)
                 genIfNeed(false)
+                var valid = 0
+                for i in 0...2 {
+                    if choice[i].isHidden {
+                        continue
+                    }
+                    for x in 0...9 {
+                        for y in 0...9 {
+                            if  checkFail(choice[i], x, y) == 0 {
+                                valid = 1
+                            }
+                        }
+                    }
+                }
+                if valid == 0 {
+                    gg.isHidden = false
+                }
             }
         }
 
@@ -329,31 +374,21 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             // or something when its not moving
         }
     }
-
+    
+    @objc func clickGG(_ gestureRecoginser: UITapGestureRecognizer) {
+        gg.isHidden = true
+        reset()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        stack.subviews[1].subviews[1].backgroundColor = UIColor.red;
         for item in choice {
             let panRegcognizer = UIPanGestureRecognizer(target: self, action: #selector(itemDidMove(_:)))
             item.addGestureRecognizer(panRegcognizer)
-            for row in item.subviews {
-                for col in row.subviews {
-                    col.backgroundColor = color[0]
-                    col.layer.cornerRadius = 5.0
-                }
-            }
         }
-        genIfNeed(true)
-        for row in stack.subviews {
-            for col in row.subviews {
-                col.backgroundColor = color[0]
-                col.layer.borderColor = UIColor.lightGray.cgColor
-                col.layer.borderWidth = 1.0
-                col.layer.cornerRadius = 5.0
-            }
-        }
+        gg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clickGG(_:))))
+        reset()
         
     }
 

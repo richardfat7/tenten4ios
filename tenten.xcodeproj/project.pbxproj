@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED805B2F23FC2AE10071E38A /* ScreenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED805B2E23FC2AE10071E38A /* ScreenDelegate.swift */; };
 		ED84EBDF23F9972B008D5501 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84EBDE23F9972B008D5501 /* AppDelegate.swift */; };
 		ED84EBE323F9972B008D5501 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84EBE223F9972B008D5501 /* ViewController.swift */; };
 		ED84EBE623F9972B008D5501 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED84EBE423F9972B008D5501 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED805B2E23FC2AE10071E38A /* ScreenDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDelegate.swift; sourceTree = "<group>"; };
 		ED84EBDB23F9972B008D5501 /* tenten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tenten.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED84EBDE23F9972B008D5501 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED84EBE223F9972B008D5501 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				ED84EBDE23F9972B008D5501 /* AppDelegate.swift */,
 				ED84EBE223F9972B008D5501 /* ViewController.swift */,
+				ED805B2E23FC2AE10071E38A /* ScreenDelegate.swift */,
 				ED84EBE423F9972B008D5501 /* Main.storyboard */,
 				ED84EC0E23FAC777008D5501 /* boardModel.swift */,
 				ED84EBE723F99730008D5501 /* Assets.xcassets */,
@@ -261,6 +264,7 @@
 			files = (
 				ED84EC0F23FAC777008D5501 /* boardModel.swift in Sources */,
 				ED84EBE323F9972B008D5501 /* ViewController.swift in Sources */,
+				ED805B2F23FC2AE10071E38A /* ScreenDelegate.swift in Sources */,
 				ED84EBDF23F9972B008D5501 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +424,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -437,7 +441,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X7J345S4A8;
 				INFOPLIST_FILE = tenten/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,7 +460,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X7J345S4A8;
 				INFOPLIST_FILE = tenten/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
