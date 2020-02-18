@@ -14,9 +14,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var choice: [UIStackView]!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var gg: UIView!
+    @IBOutlet weak var `switch`: UISwitch!
     
     var origin: [CGPoint] = Array(repeating: CGPoint.zero, count: 3)
     var score = 0
+    var easyMode: Bool = true;
     let chance = [3/42.0,3/42.0,3/42.0,2/42.0,2/42.0,2/42.0,2/42.0,6/42.0,3/42.0,2/42.0,2/42.0,3/42.0,2/42.0,2/42.0,1/42.0,1/42.0,1/42.0,1/42.0,1/42.0]
     let color = [
         UIColor.clear,
@@ -219,6 +221,23 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    func checkAnyPossible() -> Int {
+        var valid = 0
+        for i in 0...2 {
+            if choice[i].isHidden {
+                continue
+            }
+            for x in 0...9 {
+                for y in 0...9 {
+                    if  checkFail(choice[i], x, y) == 0 {
+                        valid = 1
+                    }
+                }
+            }
+        }
+        return valid
+    }
+    
     func reset() {
         score = 0
         scoreLabel.text = "\(score)"
@@ -345,19 +364,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                     }
                 }, completion: nil)
                 genIfNeed(false)
-                var valid = 0
-                for i in 0...2 {
-                    if choice[i].isHidden {
-                        continue
-                    }
-                    for x in 0...9 {
-                        for y in 0...9 {
-                            if  checkFail(choice[i], x, y) == 0 {
-                                valid = 1
-                            }
-                        }
-                    }
-                }
+                let valid = checkAnyPossible()
                 if valid == 0 {
                     gg.isHidden = false
                 }
@@ -375,9 +382,13 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    @objc func clickGG(_ gestureRecoginser: UITapGestureRecognizer) {
+    @objc func clickGG(_ gestureRecognizer: UITapGestureRecognizer) {
         gg.isHidden = true
         reset()
+    }
+    
+    @objc func switchEasy(_ mySwitch: UISwitch) {
+        easyMode = mySwitch.isOn
     }
     
     override func viewDidLoad() {
@@ -388,6 +399,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             item.addGestureRecognizer(panRegcognizer)
         }
         gg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clickGG(_:))))
+        `switch`.addTarget(self, action: #selector(switchEasy(_:)), for: UIControl.Event.valueChanged)
+
         reset()
         
     }
