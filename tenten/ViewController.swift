@@ -296,7 +296,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let spacing = (stack.subviews[0] as! UIStackView).spacing
 
         if recognizer.state == UIGestureRecognizer.State.began {
-            origin[gestureView.tag] = gestureView.center
             for constraint in gestureView.constraints {
                 if constraint.identifier == "ww" || constraint.identifier == "hh" {
                    constraint.constant = size*5+spacing*4
@@ -306,13 +305,16 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             for case let v as UIStackView in gestureView.subviews {
                 v.spacing = spacing
             }
-            gestureView.layoutIfNeeded()
+            UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseOut], animations: {
+                self.origin[gestureView.tag] = gestureView.center
+                gestureView.layoutIfNeeded()
+            }, completion: nil)
         }
 
         if recognizer.state == UIGestureRecognizer.State.ended {
             let position = gestureView.convert(translation, to: stack)
-            gestureView.center = origin[gestureView.tag]
             print(position)
+            
             for constraint in gestureView.constraints {
                 if constraint.identifier == "ww" || constraint.identifier == "hh" {
                    constraint.constant = 100
@@ -322,7 +324,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             for case let v as UIStackView in gestureView.subviews {
                 v.spacing = 4
             }
-            gestureView.layoutIfNeeded()
             print(size)
             print(spacing)
             //xcell = floor((position.x-size/2-spacing/2)/(spacing+size))+1
@@ -332,6 +333,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             var error = 0
             error = checkFail(gestureView, xcell, ycell)
             if error == 0 {
+                // move it back
+                gestureView.center = self.origin[gestureView.tag]
+                gestureView.layoutIfNeeded()
+                
                 for i in 0...4 {
                     for j in 0...4 {
                         let c = gestureView.subviews[j].subviews[i].backgroundColor
@@ -377,6 +382,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 score += ncleared * (ncleared + 1) * 10
                 scoreLabel.text = "\(score)"
                 gestureView.isHidden = true
+                
+                
                 UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                     for i in clearedx {
                         for j in 0...9 {
@@ -394,6 +401,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 if valid == 0 {
                     gg.isHidden = false
                 }
+            } else {
+                // move it back
+                UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseOut], animations: {
+                    gestureView.center = self.origin[gestureView.tag]
+                    gestureView.layoutIfNeeded()
+                }, completion: nil)
             }
         }
 

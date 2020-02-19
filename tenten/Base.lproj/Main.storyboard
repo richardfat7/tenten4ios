@@ -1243,19 +1243,6 @@
                                     <constraint firstAttribute="width" constant="100" identifier="ww" id="anK-2H-gYX"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vW2-98-0zx">
-                                <rect key="frame" x="198.66666666666666" y="84.333333333333329" width="17" height="35.666666666666671"/>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1oE-on-xBg">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <connections>
-                                    <segue destination="qw0-Ck-VGk" kind="embed" id="saR-rD-Uh4"/>
-                                </connections>
-                            </containerView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="it3-M9-Yjb">
                                 <rect key="frame" x="307" y="32" width="49" height="30"/>
                                 <constraints>
@@ -1270,6 +1257,19 @@
                                     <constraint firstAttribute="width" constant="30" id="ig0-BY-3jh"/>
                                 </constraints>
                             </imageView>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1oE-on-xBg">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <segue destination="qw0-Ck-VGk" kind="embed" id="saR-rD-Uh4"/>
+                                </connections>
+                            </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vW2-98-0zx">
+                                <rect key="frame" x="198.66666666666666" y="84.333333333333329" width="17" height="35.666666666666671"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -1338,6 +1338,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="wan-IU-ehX" secondAttribute="trailing" id="TfR-Ew-3lM"/>
                             <constraint firstItem="cer-di-8j8" firstAttribute="centerX" secondItem="rh9-xF-mpR" secondAttribute="centerX" id="WDq-gt-3kP"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kj5-Jt-iEQ"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u7W-lk-CYJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
