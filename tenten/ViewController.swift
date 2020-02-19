@@ -219,7 +219,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                     print(r)
                 }
                 print("VALID ", self.checkAllPossible(false))
-            } while self.easyMode && (self.checkAllPossible(false) < 3)
+            } while false && self.easyMode && (self.checkAllPossible(false) < 3)
             UIView.animate(withDuration: 0.5, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 for v in self.choice {
                     v.isHidden = false
