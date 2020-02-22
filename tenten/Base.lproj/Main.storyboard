@@ -1293,13 +1293,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="gg" destination="1oE-on-xBg" id="l8a-ID-CWt"/>
-                        <outlet property="scoreLabel" destination="vW2-98-0zx" id="Mau-fn-pnv"/>
-                        <outlet property="stack" destination="rh5-nx-J1x" id="KQC-vb-Kqs"/>
-                        <outlet property="switch" destination="it3-M9-Yjb" id="p2U-C6-d22"/>
-                        <outletCollection property="choice" destination="M77-fm-o4k" collectionClass="NSMutableArray" id="8ot-su-JS9"/>
-                        <outletCollection property="choice" destination="KuB-tN-wSr" collectionClass="NSMutableArray" id="SsK-ye-NHY"/>
-                        <outletCollection property="choice" destination="0TD-aW-hbA" collectionClass="NSMutableArray" id="apO-VG-Vg7"/>
+                        <outlet property="LScore" destination="vW2-98-0zx" id="Mau-fn-pnv"/>
+                        <outlet property="SHandicap" destination="it3-M9-Yjb" id="fTe-wj-9gq"/>
+                        <outlet property="VGG" destination="1oE-on-xBg" id="l8a-ID-CWt"/>
+                        <outlet property="VGrid" destination="rh5-nx-J1x" id="KQC-vb-Kqs"/>
+                        <outletCollection property="VBag" destination="M77-fm-o4k" collectionClass="NSMutableArray" id="8ot-su-JS9"/>
+                        <outletCollection property="VBag" destination="KuB-tN-wSr" collectionClass="NSMutableArray" id="SsK-ye-NHY"/>
+                        <outletCollection property="VBag" destination="0TD-aW-hbA" collectionClass="NSMutableArray" id="apO-VG-Vg7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
