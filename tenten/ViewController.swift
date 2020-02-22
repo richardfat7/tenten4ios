@@ -304,9 +304,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var VGG: UIView!
     @IBOutlet weak var SHandicap: UISwitch!
     
+    @IBOutlet var topSpace: [NSLayoutConstraint]!
+    
+    @IBOutlet var rightHorizontal: [NSLayoutConstraint]!
     // Variables
     var engine = GameEngine()
     var origin = Array(repeating: CGPoint.zero, count: 3)
+    var offset = Array(repeating: CGPoint.zero, count: 3)
+    var initTouch = Array(repeating: CGPoint.zero, count: 3)
+    var isMoving = Array(repeating: false, count: 3)
     
     func randomNumber(probabilities: [Double]) -> Int {
         // Sum of all probabilities (so that we don't have to require that the sum is 1.0):
@@ -514,78 +520,102 @@ class ViewController: UIViewController {
         }, completion: nil)
     }
     
-    @objc func itemDidMove(_ recognizer:UIPanGestureRecognizer) {
-        
+
+    @objc func itemDidLongPress(_ recognizer:UILongPressGestureRecognizer) {
         guard let gestureView = recognizer.view as? UIStackView else {
             return
         }
-        let translation = recognizer.translation(in: gestureView.superview)
         let size = VGrid.subviews[0].subviews[0].frame.height
         let spacing = (VGrid.subviews[0] as! UIStackView).spacing
-
+        let center = gestureView.center
+        let location = recognizer.location(in: gestureView.superview)
+        let tag = gestureView.tag
+        
         if recognizer.state == UIGestureRecognizer.State.began {
-            for constraint in gestureView.constraints {
-                if constraint.identifier == "ww" || constraint.identifier == "hh" {
-                   constraint.constant = size*5+spacing*4
-                }
-            }
-            gestureView.spacing = spacing
-            for case let v as UIStackView in gestureView.subviews {
-                v.spacing = spacing
-            }
-            UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseOut], animations: {
-                self.origin[gestureView.tag] = gestureView.center
-                gestureView.layoutIfNeeded()
-            }, completion: nil)
-        }
-
-        if recognizer.state == UIGestureRecognizer.State.ended {
-            let position = gestureView.convert(translation, to: VGrid)
-            print(position)
-            
-            for constraint in gestureView.constraints {
-                if constraint.identifier == "ww" || constraint.identifier == "hh" {
-                   constraint.constant = 100
-                }
-            }
-            gestureView.spacing = 4
-            for case let v as UIStackView in gestureView.subviews {
-                v.spacing = 4
-            }
-            print(size)
-            print(spacing)
-            //xcell = floor((position.x-size/2-spacing/2)/(spacing+size))+1
-            //print(floor((position.y-size/2-spacing/2)/(spacing+size))+1)
-            let xcell = Int(round((position.x)/(spacing+size)))
-            let ycell = Int(round((position.y)/(spacing+size)))
-            var error = 0
-            error = checkFail(gestureView, xcell, ycell)
-            if error == 0 {
-                // move it back
-                gestureView.center = self.origin[gestureView.tag]
-                gestureView.layoutIfNeeded()
+            let csize = gestureView.subviews[0].subviews[0].frame.height
+            let cspacing = (gestureView.subviews[0] as! UIStackView).spacing
+            let xcell = max(min(Int(floor((location.x - center.x + 50 + cspacing / 2)/(cspacing+csize))), 4), 0)
+            let ycell = max(min(Int(floor((location.y - center.y + 50 + cspacing / 2)/(cspacing+csize))), 4), 0)
+            if gestureView.subviews[ycell].subviews[xcell].backgroundColor != color[0] {
+                self.isMoving[tag] = true
+                self.origin[tag] = gestureView.center
                 
-                doMove(gestureView, xcell, ycell, 0.3)
-                genIfNeed(false)
-                let valid = checkAnyPossible(true)
-                if valid == 0 {
-                    VGG.isHidden = false
+                self.initTouch[tag] = location
+                
+                self.offset[tag] = CGPoint(
+                    x: (location.x - center.x) * (size*5+spacing*4-100)/100,
+                    y: (location.y - center.y) * (size*5+spacing*4-100)/100)
+                for constraint in gestureView.constraints {
+                    if constraint.identifier == "ww" || constraint.identifier == "hh" {
+                       constraint.constant = size*5+spacing*4
+                    }
                 }
-            } else {
-                // move it back
+                gestureView.spacing = spacing
+                for case let v as UIStackView in gestureView.subviews {
+                    v.spacing = spacing
+                }
+                topSpace[tag].constant = view.convert(
+                    CGPoint(
+                    x: origin[tag].x + location.x - initTouch[tag].x - offset[tag].x,
+                    y: origin[tag].y + location.y - initTouch[tag].y - offset[tag].y
+                    ), to: VGrid).y - VGrid.frame.height
+                rightHorizontal[tag].constant = origin[tag].x + location.x - initTouch[tag].x - offset[tag].x - view.frame.width/2
+                
                 UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseOut], animations: {
-                    gestureView.center = self.origin[gestureView.tag]
                     gestureView.layoutIfNeeded()
                 }, completion: nil)
             }
-        }
-
-        if recognizer.state == UIGestureRecognizer.State.changed {
-            gestureView.center = CGPoint(
-              x: gestureView.center.x + translation.x,
-              y: gestureView.center.y + translation.y
-            )
-            recognizer.setTranslation(CGPoint.zero, in: gestureView.superview)
+        } else if recognizer.state == UIGestureRecognizer.State.ended {
+            if self.isMoving[tag] {
+                self.isMoving[tag] = false
+                let position = gestureView.convert(CGPoint.zero, to: VGrid)
+                
+                
+                for constraint in gestureView.constraints {
+                    if constraint.identifier == "ww" || constraint.identifier == "hh" {
+                       constraint.constant = 100
+                    }
+                }
+                gestureView.spacing = 4
+                for case let v as UIStackView in gestureView.subviews {
+                    v.spacing = 4
+                }
+                
+                topSpace[tag].constant = 100
+                rightHorizontal[tag].constant = [-120, 0, 120][tag]
+                
+                //xcell = floor((position.x-size/2-spacing/2)/(spacing+size))+1
+                //print(floor((position.y-size/2-spacing/2)/(spacing+size))+1)
+                let xcell = Int(round((position.x)/(spacing+size)))
+                let ycell = Int(round((position.y)/(spacing+size)))
+                var error = 0
+                error = checkFail(gestureView, xcell, ycell)
+                if error == 0 {
+                    // move it back
+                    gestureView.center = self.origin[tag]
+                    gestureView.layoutIfNeeded()
+                    
+                    doMove(gestureView, xcell, ycell, 0.3)
+                    genIfNeed(false)
+                    let valid = checkAnyPossible(true)
+                    if valid == 0 {
+                        VGG.isHidden = false
+                    }
+                } else {
+                    // move it back
+                    UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseOut], animations: {
+                        gestureView.center = self.origin[tag]
+                        gestureView.layoutIfNeeded()
+                    }, completion: nil)
+                }
+            }
+        } else if recognizer.state == UIGestureRecognizer.State.changed {
+            if self.isMoving[tag] {
+                gestureView.center = CGPoint(
+                    x: origin[tag].x + location.x - initTouch[tag].x - offset[tag].x,
+                    y: origin[tag].y + location.y - initTouch[tag].y - offset[tag].y
+                )
+            }
         } else {
             // or something when its not moving
         }
@@ -604,8 +634,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         for item in VBag {
-            let panRegcognizer = UIPanGestureRecognizer(target: self, action: #selector(itemDidMove(_:)))
-            item.addGestureRecognizer(panRegcognizer)
+            //let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(itemDidMove(_:)))
+            //item.addGestureRecognizer(panRecognizer)
+            let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(itemDidLongPress(_:)))
+            longPressRecognizer.minimumPressDuration = 0.0
+            longPressRecognizer.allowableMovement = CGFloat.infinity
+            item.addGestureRecognizer(longPressRecognizer)
         }
         VGG.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clickGG(_:))))
         SHandicap.addTarget(self, action: #selector(switchEasy(_:)), for: UIControl.Event.valueChanged)
