@@ -15,7 +15,7 @@
 		ED84EBEB23F99730008D5501 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED84EBE923F99730008D5501 /* LaunchScreen.storyboard */; };
 		ED84EBF623F99730008D5501 /* tentenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84EBF523F99730008D5501 /* tentenTests.swift */; };
 		ED84EC0123F99730008D5501 /* tentenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84EC0023F99730008D5501 /* tentenUITests.swift */; };
-		ED84EC0F23FAC777008D5501 /* boardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84EC0E23FAC777008D5501 /* boardModel.swift */; };
+		ED84EC0F23FAC777008D5501 /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED84EC0E23FAC777008D5501 /* GameEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 		ED84EBFC23F99730008D5501 /* tentenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tentenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED84EC0023F99730008D5501 /* tentenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tentenUITests.swift; sourceTree = "<group>"; };
 		ED84EC0223F99730008D5501 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED84EC0E23FAC777008D5501 /* boardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = boardModel.swift; sourceTree = "<group>"; };
+		ED84EC0E23FAC777008D5501 /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +105,7 @@
 				ED84EBE223F9972B008D5501 /* ViewController.swift */,
 				ED805B2E23FC2AE10071E38A /* ScreenDelegate.swift */,
 				ED84EBE423F9972B008D5501 /* Main.storyboard */,
-				ED84EC0E23FAC777008D5501 /* boardModel.swift */,
+				ED84EC0E23FAC777008D5501 /* GameEngine.swift */,
 				ED84EBE723F99730008D5501 /* Assets.xcassets */,
 				ED84EBE923F99730008D5501 /* LaunchScreen.storyboard */,
 				ED84EBEC23F99730008D5501 /* Info.plist */,
@@ -262,7 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED84EC0F23FAC777008D5501 /* boardModel.swift in Sources */,
+				ED84EC0F23FAC777008D5501 /* GameEngine.swift in Sources */,
 				ED84EBE323F9972B008D5501 /* ViewController.swift in Sources */,
 				ED805B2F23FC2AE10071E38A /* ScreenDelegate.swift in Sources */,
 				ED84EBDF23F9972B008D5501 /* AppDelegate.swift in Sources */,
